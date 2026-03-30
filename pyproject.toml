@@ -1,0 +1,32 @@
+[project]
+name = "caching-proxy"
+version = "0.1.0"
+description = "A high‑performance caching proxy built with FastAPI and Redis."
+authors = [
+    {name = "Muzaffar Shaikh",email = "114210961+MuzaffarShaikh0201@users.noreply.github.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard] (>=0.135.2,<0.136.0)",
+    "pydantic-settings (>=2.13.1,<3.0.0)",
+    "redis (>=7.4.0,<8.0.0)"
+]
+
+
+[tool.poetry]
+name = "caching-proxy"
+version = "0.1.0"
+description = "A high‑performance caching proxy built with FastAPI and Redis."
+authors = ["Muzaffar Shaikh <muzaffarshaikh0201@gmail.com>"]
+packages = [{include = "src"}]
+
+
+[tool.poetry.scripts]
+api = "scripts.cli:api"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
