@@ -12,7 +12,10 @@ class Settings(BaseSettings):
     """Application settings - all from environment variables."""
 
     model_config = SettingsConfigDict(
-        env_file=".env", env_file_encoding="utf-8", case_sensitive=False, extra="ignore"
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=False,
+        extra="ignore",
     )
 
     # Application Settings
@@ -26,6 +29,12 @@ class Settings(BaseSettings):
         default="http://localhost:8000", description="The base URL of the application"
     )
     support_email: str = Field(..., description="The support email of the application")
+
+    # Caching proxy (set by CLI: caching-proxy --port … --origin …)
+    proxy_origin: str | None = Field(
+        default=None,
+        description="Origin base URL to forward proxied requests to",
+    )
 
     # Redis Settings
     redis_host: str = Field(..., description="The host of the Redis database")
